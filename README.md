@@ -9,22 +9,24 @@ You have a kubectl installed and configured. You have argo2 installed and availa
 ### First time run the following:
 
 To be able to create cluster roles in kubernetes you need to run the following:
-
+```shell
 kubectl create clusterrolebinding cluster-admin-binding --clusterrole=cluster-admin --user="user login"  
 
 kubectl create -f example-cd/logging-cr  
 kubectl create -f example-cd/monitoring-cr  
+```
 
 ### To run:
-
+```shell
 cd workflows  
 argo submit logging-workflow.yaml  
 argo submit sock-shop-workflow.yaml  
 argo submit monitoring-workflow.yaml  
+```
 
 ### To cleanup:
-
+```shell
 argo submit monitoring-cleanup-workflow.yaml  
 argo submit sock-shop-cleanup-workflow.yaml  
 argo submit logging-cleanup-workflow.yaml  
-
+```
